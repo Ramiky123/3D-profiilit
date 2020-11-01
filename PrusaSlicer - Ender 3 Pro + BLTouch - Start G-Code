@@ -1,0 +1,22 @@
+M117 Alustan lammitys
+M140 S[first_layer_bed_temperature] ; Asetetaan kohdelampotila
+M190 S[first_layer_bed_temperature] ; Lammitetaan kohdelampotilaan
+M117 Lammitetaan hotend
+M104 S160; Aloita hotendin lammitys 160 astetta
+G28 ; Tarkista endpointit
+M117 Alustan levelointi
+G29 ; BLTOUCH
+G92 E0 ; Extruderin nollaus
+M117 Lammitetaan hotend
+M104 S[first_layer_temperature] ; Asetetaan hotendin kohdelampotila
+M109 S[first_layer_temperature] ; Lammitetaan hotend
+G1 Z1.0 F3000 ; Siirra hieman ylospain Z-aksilaa
+G1 X0.1 Y20 Z0.3 F5000.0 ; Siirry aloituskohtaan
+M117 Hotendin primerointi
+G1 X0.1 Y200.0 Z0.3 F1500.0 E15 ; Veda eka viiva
+G1 X0.4 Y200.0 Z0.3 F5000.0 ; Siirry sivuun
+G1 X0.4 Y20 Z0.3 F1500.0 E30 ; Veda toinen viiva
+G92 E0 ; Extruderin nollaus
+G1 Z1.0 F3000 ; Siirra Z-aksilaa hieman ylos ettei naarmuta alustaa
+G90 ; Absoluuttiset mittasuhteet
+M117 Tulostetaan AINA MAKSIMII
